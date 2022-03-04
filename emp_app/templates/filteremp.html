@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block heading %}
+            <h1 class="text-center">Filter Employee Details</h1>
+{% endblock heading %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-sm-5 mt-3 border px-3 py-3 shadow">
+        <form action="/filter_emp" method="POST" novalidate>
+            {% csrf_token %}
+            <label for="name">Employee first/last Name</label><br>
+            <input type="text" name="name" id="name" value="{{ name }}" class="form-control"><br>
+            <label for="dept">Department</label><br>
+            <input type="text" name="dept" id="dept" value="{{ dept }}" class="form-control"><br>
+            <label for="role">Role</label><br>
+            <input type="text" name="role" id="role" value="{{ role }}" class="form-control"><br>
+            <input type="submit" class="btn btn-success" value="Submit">
+        </form>
+    </div>
+    
+</div>
+
+{% endblock content %}

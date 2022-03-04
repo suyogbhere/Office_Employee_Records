@@ -1,0 +1,16 @@
+def filter_emp(request):
+    if request.method == 'POST':
+        fname=request.POST['first_name']
+        dept=request.POST['dept']
+        role=request.POST['role']
+        emps=Employee.objects.all()
+        if fname:
+            emps=emps.filter(Q(first_name__icontains=fname))
+        if dept:
+            emps=emps.filter(dept=dept)
+        if role:
+            pass
+        
+    else:
+        fm=Emplayeeform()
+    return render(request,'filteremp.html',{'form':fm})

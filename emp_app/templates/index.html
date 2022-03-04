@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Office Employee Management System</title>{% endblock title %}
+    <link rel="stylesheet" href="{% static 'emp/css/bootstrap.css' %}">
+    <style>
+        a:link{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="bg-light bg-gradient">
+    
+    <div class="container">
+        {% block heading %}
+            <h1 class="text-center">Office Employee Mangement System</h1>
+        {% endblock heading %}
+        <hr>
+        <br>
+        <a type='button' class="bg-black py-4 px-5 ms-5 text-white" href="{% url 'all_emp' %}">View All Employee</a>
+        <a type='button' class="py-4 px-5 text-black" href="{% url 'add_emp' %}">Add An Employee</a>
+        <a type='button' class="bg-info py-4 px-5 text-white" href="{% url 'remove_emp' %}">Remove An Employee</a>
+        <a type='button' class=" bg-danger py-4 px-5 text-white" href="{% url 'filter_emp' %}">Filter An Employee</a>
+    </div>
+
+    {% block content %} {% endblock content %}
+
+
+    <script src="{% static 'emp/js/jquery.js' %}"></script>
+    <script src="{% static 'emp/js/popper.js' %}"></script>
+    <script src="{% static 'emp/js/bootstrap.js' %}"></script>
+</body>
+</html>
